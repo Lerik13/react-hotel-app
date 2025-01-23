@@ -6,3 +6,10 @@ export const screenSizes = {
   laptop: '1024px',
   desktop: '2560px',
 }
+
+export const windowSizes = {
+  mobile: 320,
+  tablet: 768,
+  laptop: 1024,
+  desktop: 2560,
+}

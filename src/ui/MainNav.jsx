@@ -7,6 +7,7 @@ import {
   HiOutlineUsers,
   HiOutlineCog6Tooth,
 } from 'react-icons/hi2'
+import { useOpenSidebar } from '../context/OpenSidebarContext'
 
 const NavList = styled.ul`
   display: flex;
@@ -53,9 +54,11 @@ const StyledNavLink = styled(NavLink)`
 `
 
 function MainNav() {
+  const { isSidebarOpen, closeSidebar } = useOpenSidebar()
+
   return (
     <nav>
-      <NavList>
+      <NavList onClick={() => closeSidebar()}>
         <li>
           <StyledNavLink to="/dashboard">
             <HiOutlineHome />

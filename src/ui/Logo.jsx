@@ -5,7 +5,7 @@ const StyledLogo = styled.div`
   text-align: center;
 `
 const Img = styled.img`
-  height: 18rem; //9.6rem
+  height: 18rem;
   width: auto;
 `
 
