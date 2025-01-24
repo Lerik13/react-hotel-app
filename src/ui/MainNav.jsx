@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import {
-  HiOutlineHome,
+  HiOutlinePresentationChartLine,
   HiOutlineCalendarDays,
   HiOutlineHomeModern,
   HiOutlineUsers,
@@ -61,8 +61,8 @@ function MainNav() {
       <NavList onClick={() => closeSidebar()}>
         <li>
           <StyledNavLink to="/dashboard">
-            <HiOutlineHome />
-            <span>Home</span>
+            <HiOutlinePresentationChartLine />
+            <span>Dashboard</span>
           </StyledNavLink>
         </li>
         <li>
