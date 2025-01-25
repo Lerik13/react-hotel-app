@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { screenSizes } from '../utils/constants'
 
 const StyledFormRow = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: 24rem 1fr 1.2fr;
+  grid-template-columns: 24rem 1fr 1fr;
   gap: 2.4rem;
-
   padding: 1.2rem 0;
 
   &:first-child {
@@ -20,10 +20,20 @@ const StyledFormRow = styled.div`
     border-bottom: 1px solid var(--color-grey-100);
   }
 
-  &:has(button) {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1.2rem;
+  ${(props) =>
+    props.isright &&
+    css`
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.2rem;
+    `}
+
+  @media (max-width: ${screenSizes.laptop}) {
+    grid-template-columns: 1fr 1.3fr;
+  }
+  @media (max-width: ${screenSizes.tablet}) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 `
 
@@ -36,14 +46,18 @@ const Error = styled.span`
   color: var(--color-red-700);
 `
 
-function FormRow({ label, error, children }) {
+function FormRow({ label, error, children, isright = false }) {
   return (
-    <StyledFormRow>
-      {label && <Label htmlFor={children.props.id}>{label}</Label>}
+    <StyledFormRow isright={isright}>
+      {label && <Label htmlFor={children?.props?.id}>{label}</Label>}
       {children}
       {error && <Error>{error}</Error>}
     </StyledFormRow>
   )
+}
+
+FormRow.defaultProps = {
+  isright: false,
 }
 
 export default FormRow

@@ -18,6 +18,7 @@ import Checkin from './pages/Checkin'
 import ProtectedRoute from './ui/ProtectedRoute'
 import { DarkModeProvider } from './context/DarkModeContext'
 import { OpenSidebarProvider } from './context/OpenSidebarContext'
+import NewBooking from './pages/NewBooking'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -48,6 +49,8 @@ function App() {
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="bookings" element={<Bookings />} />
                 <Route path="bookings/:bookingId" element={<Booking />} />
+                <Route path="bookings/new" element={<NewBooking />} />
+                <Route path="bookings/new/:cabinId" element={<NewBooking />} />
                 <Route path="checkin/:bookingId" element={<Checkin />} />
                 <Route path="cabins" element={<Cabins />} />
                 <Route path="users" element={<Users />} />

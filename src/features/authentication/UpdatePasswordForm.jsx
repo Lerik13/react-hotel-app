@@ -53,7 +53,7 @@ function UpdatePasswordForm() {
           })}
         />
       </FormRow>
-      <FormRow>
+      <FormRow isright={true}>
         <Button onClick={reset} type="reset" variation="secondary">
           Cancel
         </Button>

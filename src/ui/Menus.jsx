@@ -1,8 +1,11 @@
 import { useState, createContext, useContext } from 'react'
 import { createPortal } from 'react-dom'
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import { HiEllipsisVertical } from 'react-icons/hi2'
 import { useOutsideClick } from '../hooks/useOutsideClick'
+import { windowSizes } from '../utils/constants'
+import { useWindowSize } from '../hooks/useWindowSize'
 
 const Menu = styled.div`
   position: relative;
@@ -11,7 +14,7 @@ const Menu = styled.div`
   justify-content: flex-end;
 `
 
-const StyledToggle = styled.button`
+const StyledToggle = styled(motion.button)`
   background: none;
   border: none;
   padding: 0.4rem;
@@ -87,6 +90,7 @@ function Menus({ children }) {
 
 function Toggle({ id }) {
   const { openId, close, open, setPosition } = useContext(MenusContext)
+  const { width } = useWindowSize()
 
   function handleClick(e) {
     e.stopPropagation()
@@ -107,7 +111,16 @@ function Toggle({ id }) {
   }
 
   return (
-    <StyledToggle onClick={handleClick}>
+    <StyledToggle
+      whileHover={{ scale: 1.4, rotate: -90 }}
+      whileTap={
+        width >= windowSizes.tablet
+          ? { scale: 0.8 }
+          : { scale: 1.6, rotate: -90 }
+      }
+      transition={{ duration: 0.1 }}
+      onClick={handleClick}
+    >
       <HiEllipsisVertical />
     </StyledToggle>
   )

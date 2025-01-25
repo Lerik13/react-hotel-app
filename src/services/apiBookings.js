@@ -129,3 +129,73 @@ export async function deleteBooking(id) {
   }
   return data
 }
+
+export async function checkForOverlappingBookings(
+  cabinId,
+  startDate,
+  endDate,
+  editBookingId = null
+) {
+  let query = supabase
+    .from('bookings')
+    .select('id')
+    .not('status', 'eq', 'checked-out')
+    .eq('cabinId', cabinId)
+    .lte('startDate', endDate)
+    .gte('endDate', startDate)
+
+  if (editBookingId) {
+    query = query.not('id', 'eq', editBookingId)
+  }
+
+  const { data, error } = await query
+
+  if (error) {
+    console.error(error)
+    throw new Error('Failed to check for overlapping bookings')
+  }
+
+  return data.length > 0
+}
+
+export async function createBooking(newBooking) {
+  const { cabinId, startDate, endDate } = newBooking
+  const hasOverlap = await checkForOverlappingBookings(
+    cabinId,
+    startDate,
+    endDate
+  )
+
+  if (hasOverlap) {
+    throw new Error('The cabin is already booked for the selected dates.')
+  } else {
+    const { data, error } = await supabase
+      .from('bookings')
+      .insert([{ ...newBooking }])
+      .select()
+
+    if (error) {
+      console.error(error)
+      throw new Error('Booking could not be created')
+    }
+
+    return data
+  }
+}
+
+export async function getBookingsByCabin(cabinId) {
+  const query = supabase
+    .from('bookings')
+    .select('*')
+    .eq('cabinId', cabinId)
+    .gte('endDate', getToday())
+    .not('status', 'eq', 'checked-out')
+
+  const { data, error } = await query
+
+  if (error) {
+    console.error(error)
+    throw new Error('Bookings could not be loaded')
+  }
+  return data
+}

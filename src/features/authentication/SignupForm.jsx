@@ -79,7 +79,7 @@ function SignupForm() {
         />
       </FormRow>
 
-      <FormRow>
+      <FormRow isright={true}>
         {/* type is an HTML attribute! */}
         <Button
           variation="secondary"

@@ -65,7 +65,7 @@ function UpdateUserDataForm() {
           disabled={isUpdating}
         />
       </FormRow>
-      <FormRow>
+      <FormRow isright={true}>
         <Button
           type="reset"
           variation="secondary"

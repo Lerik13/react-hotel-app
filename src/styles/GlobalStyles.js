@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import 'react-day-picker/dist/style.css'
 
 const GlobalStyles = createGlobalStyle`
 

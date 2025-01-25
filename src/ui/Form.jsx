@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { screenSizes } from '../utils/constants'
 
 const Form = styled.form`
   ${(props) =>
@@ -16,10 +17,20 @@ const Form = styled.form`
     props.type === 'modal' &&
     css`
       width: 80rem;
+
+      @media (max-width: ${screenSizes.tablet}) {
+        width: 100%;
+      }
     `}
     
-  overflow: hidden;
+  overflow: auto;
   font-size: 1.4rem;
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 `
 Form.defaultProps = {
   type: 'regular',
