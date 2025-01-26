@@ -4,6 +4,7 @@ import Row from '../ui/Row'
 
 import GuestTable from '../features/guests/GuestTable'
 import GuestTableOperations from '../features/guests/GuestTableOperation'
+import AddGuest from '../features/guests/AddGuest'
 
 function Guests() {
   return (
@@ -15,6 +16,8 @@ function Guests() {
           </span>
           Guests
         </Heading>
+
+        <AddGuest />
 
         <GuestTableOperations />
       </Row>
