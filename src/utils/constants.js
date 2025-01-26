@@ -1,5 +1,7 @@
 export const PAGE_SIZE = 10
 
+export const COUNTRY_MAX_LENGTH = 15
+
 export const screenSizes = {
   mobile: '320px',
   tablet: '768px',

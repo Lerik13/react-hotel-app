@@ -302,7 +302,10 @@ function CreateBookingForm() {
   return (
     <>
       <div>
-        <ButtonText className="button-back" onClick={moveBack}>
+        <ButtonText
+          className="button-back"
+          onClick={() => navigate('/bookings')}
+        >
           &larr; Back
         </ButtonText>
       </div>

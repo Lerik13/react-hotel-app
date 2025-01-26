@@ -6,6 +6,7 @@ import {
   HiOutlineHomeModern,
   HiOutlineUsers,
   HiOutlineCog6Tooth,
+  HiOutlineUserGroup,
 } from 'react-icons/hi2'
 import { useOpenSidebar } from '../context/OpenSidebarContext'
 
@@ -63,6 +64,12 @@ function MainNav() {
           <StyledNavLink to="/dashboard">
             <HiOutlinePresentationChartLine />
             <span>Dashboard</span>
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="/guests">
+            <HiOutlineUserGroup />
+            <span>Guests</span>
           </StyledNavLink>
         </li>
         <li>
