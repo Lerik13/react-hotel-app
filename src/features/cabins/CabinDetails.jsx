@@ -23,9 +23,13 @@ const StyledCabinDetails = styled.div`
   overflow: hidden;
   justify-content: center;
 
-  @media (max-width: ${screenSizes.tablet}) {
+  @media (max-width: ${screenSizes.laptop}) {
     padding: 1.6rem 2rem;
     min-width: 80dvw;
+  }
+  @media (max-width: ${screenSizes.tablet}) {
+    padding: 1.6rem 2rem;
+    min-width: 60dvw;
   }
 `
 

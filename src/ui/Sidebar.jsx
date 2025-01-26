@@ -9,6 +9,27 @@ import { useWindowSize } from '../hooks/useWindowSize'
 import { screenSizes, windowSizes } from '../utils/constants'
 //import Uploader from '../data/Uploader'
 
+const modalVariants = {
+  hidden: {
+    x: '-100dvw',
+    opacity: 0,
+  },
+  visible: {
+    x: '0',
+    opacity: 1,
+    transition: {
+      duration: 4,
+      type: 'spring',
+      damping: 25,
+      stiffness: 300,
+    },
+  },
+  exit: {
+    x: '-100dvw',
+    opacity: 0,
+  },
+}
+
 const StyledWrapper = styled(motion.div)`
   position: fixed;
   inset: 0;
@@ -48,10 +69,11 @@ function SidebarModal({ onClose }) {
     >
       <StyledSidebar
         onClick={(e) => e.stopPropagation()}
-        initial={{ transform: 'translateX(-100%)', opacity: 0 }}
-        animate={{ transform: 'translateX(0)', opacity: 1 }}
-        exit={{ transform: 'translateX(-100%)', opacity: 0 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={modalVariants}
+        transition={{ duration: 1 }}
       >
         <StyledButtonWrapper>
           <ButtonIcon onClick={onClose}>
