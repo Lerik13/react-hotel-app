@@ -1,5 +1,11 @@
 import styled from 'styled-components'
-import { HiSquare2Stack, HiPencil, HiTrash } from 'react-icons/hi2'
+import {
+  HiSquare2Stack,
+  HiPencil,
+  HiTrash,
+  HiArrowDownOnSquareStack,
+  HiEye,
+} from 'react-icons/hi2'
 
 import CreateCabinForm from './CreateCabinForm'
 import { useDeleteCabin } from './useDeleteCabin'
@@ -9,6 +15,8 @@ import Modal from '../../ui/Modal'
 import Table from '../../ui/Table'
 import ConfirmDelete from '../../ui/ConfirmDelete'
 import Menus from '../../ui/Menus'
+import { useNavigate } from 'react-router-dom'
+import CabinDetails from './CabinDetails'
 
 const Img = styled.img`
   display: block;
@@ -40,6 +48,7 @@ const Discount = styled.div`
 function CabinRow({ cabin }) {
   const { isDeleting, deleteCabin } = useDeleteCabin()
   const { isCreating, createCabin } = useCreateCabin()
+  const navigate = useNavigate()
 
   const {
     id: cabinId,
@@ -79,7 +88,23 @@ function CabinRow({ cabin }) {
             <Menus.Toggle id={cabinId} />
 
             <Menus.List id={cabinId}>
-              <Menus.Button icon={<HiSquare2Stack />} onClick={handleDuplicate}>
+              <Modal.Open opens="cabin-details">
+                <Menus.Button icon={<HiEye />}>See Details</Menus.Button>
+              </Modal.Open>
+
+              <Menus.Button
+                icon={<HiArrowDownOnSquareStack />}
+                onClick={() => navigate(`/bookings/new/${cabinId}`)}
+                disabled={isCreating}
+              >
+                Book Cabin
+              </Menus.Button>
+
+              <Menus.Button
+                icon={<HiSquare2Stack />}
+                onClick={handleDuplicate}
+                disabled={isCreating}
+              >
                 Duplicate
               </Menus.Button>
 
@@ -91,6 +116,10 @@ function CabinRow({ cabin }) {
                 <Menus.Button icon={<HiTrash />}>Delete</Menus.Button>
               </Modal.Open>
             </Menus.List>
+
+            <Modal.Window name="cabin-details">
+              <CabinDetails cabin={cabin} />
+            </Modal.Window>
 
             <Modal.Window name="editCabin">
               <CreateCabinForm cabinToEdit={cabin} />

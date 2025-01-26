@@ -11,10 +11,7 @@ import {
   startOfToday,
   endOfDay,
 } from 'date-fns'
-import {
-  HiOutlineSquare3Stack3D,
-  HiOutlineQuestionMarkCircle,
-} from 'react-icons/hi2'
+import { HiOutlineSquare3Stack3D } from 'react-icons/hi2'
 
 import { useCreateBookings } from './useCreateBookings'
 import { useSettings } from '../settings/useSettings'
@@ -302,10 +299,7 @@ function CreateBookingForm() {
   return (
     <>
       <div>
-        <ButtonText
-          className="button-back"
-          onClick={() => navigate('/bookings')}
-        >
+        <ButtonText className="button-back" onClick={moveBack}>
           &larr; Back
         </ButtonText>
       </div>
