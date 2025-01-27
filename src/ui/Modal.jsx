@@ -34,8 +34,8 @@ const StyledModal = styled(motion.div)`
   position: fixed;
   top: 10dvh;
   left: 30dvw;
-  max-width: max-content;
   z-index: 100;
+  max-width: max-content;
   background-color: var(--color-grey-0);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);

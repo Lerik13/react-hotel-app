@@ -12,7 +12,7 @@ const Row = styled.div`
 
       @media (max-width: ${screenSizes.tablet}) {
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 1.8rem;
 
         min-width: 30rem;
       }

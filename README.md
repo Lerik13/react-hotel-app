@@ -2,6 +2,8 @@
 
 Mountain Villa is a full-stack application designed to manage the operations of hotel rooms or cabin rentals (inner app). This application offers a wide range of features to manage bookings, guests, cabins, and much more, providing a one-stop solution for property managers to optimize their workflow and enhance guest experiences.
 
+![Screenshot](/public/screenshots/desktop/desktop-0.png)
+
 ## Features
 
 - **Authentication**: Secure login and authentication system for users.
@@ -41,10 +43,20 @@ The application is designed with a focus on reusability, scalability, and perfor
 
 ![Screenshot](/public/screenshots/desktop/1.jpg)
 ![Screenshot](/public/screenshots/desktop/2.jpg)
+![Screenshot](/public/screenshots/desktop/9.jpg)
 ![Screenshot](/public/screenshots/desktop/3.jpg)
+
 
 ### Desktop View - Light Mode
 
 ![Screenshot](/public/screenshots/desktop/4.jpg)
 ![Screenshot](/public/screenshots/desktop/5.jpg)
 ![Screenshot](/public/screenshots/desktop/6.jpg)
+![Screenshot](/public/screenshots/desktop/7.jpg)
+![Screenshot](/public/screenshots/desktop/8.jpg)
+
+### Mobile View - Dark Mode
+
+![Screenshot](/public/screenshots/mobile/mobile1.png)
+
+![Screenshot](/public/screenshots/mobile/mobile2.png)

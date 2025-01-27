@@ -1,5 +1,6 @@
 import { createContext, useContext } from 'react'
 import styled from 'styled-components'
+import { screenSizes } from '../utils/constants'
 
 const StyledTable = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -15,6 +16,11 @@ const CommonRow = styled.div`
   column-gap: 2.4rem;
   align-items: center;
   transition: none;
+
+  @media (max-width: ${screenSizes.tablet}) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 `
 
 const StyledHeader = styled(CommonRow)`

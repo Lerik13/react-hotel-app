@@ -6,8 +6,7 @@ import MainNav from './MainNav'
 import { useOpenSidebar } from '../context/OpenSidebarContext'
 import ButtonIcon from './ButtonIcon'
 import { useWindowSize } from '../hooks/useWindowSize'
-import { screenSizes, windowSizes } from '../utils/constants'
-//import Uploader from '../data/Uploader'
+import Uploader from '../data/Uploader'
 
 const modalVariants = {
   hidden: {
@@ -58,8 +57,6 @@ const StyledButtonWrapper = styled.div`
 `
 
 function SidebarModal({ onClose }) {
-  const { width } = useWindowSize()
-
   return (
     <StyledWrapper
       onClick={onClose}
@@ -83,6 +80,7 @@ function SidebarModal({ onClose }) {
 
         <Logo />
         <MainNav />
+
         {/* <Uploader /> */}
       </StyledSidebar>
     </StyledWrapper>

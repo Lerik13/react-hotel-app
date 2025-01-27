@@ -5,10 +5,13 @@ import Spinner from '../../ui/Spinner'
 import Table from '../../ui/Table'
 import Menus from '../../ui/Menus'
 import Empty from '../../ui/Empty'
+import { useWindowSize } from '../../hooks/useWindowSize'
+import { windowSizes } from '../../utils/constants'
 
 function CabinTable() {
   const { isLoading, cabins } = useCabins()
   const [searchParams] = useSearchParams()
+  const { width } = useWindowSize()
 
   if (isLoading) return <Spinner />
 
@@ -37,15 +40,16 @@ function CabinTable() {
   return (
     <Menus>
       <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
-        <Table.Header>
-          <div></div>
-          <div>Cabin</div>
-          <div>Capacity</div>
-          <div>Price</div>
-          <div>Discount</div>
-          <div></div>
-        </Table.Header>
-
+        {width >= windowSizes.tablet && (
+          <Table.Header>
+            <div></div>
+            <div>Cabin</div>
+            <div>Capacity</div>
+            <div>Price</div>
+            <div>Discount</div>
+            <div></div>
+          </Table.Header>
+        )}
         <Table.Body
           //data={cabins}
           //data={filteredCabins}

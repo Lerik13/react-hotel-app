@@ -20,7 +20,7 @@ const StyledCabinDetails = styled.div`
   border-radius: var(--border-radius-md);
   padding: 1.6rem 2rem;
   gap: 1rem;
-  overflow: hidden;
+  //overflow: hidden;
   justify-content: center;
 
   @media (max-width: ${screenSizes.laptop}) {
