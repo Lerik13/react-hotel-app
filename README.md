@@ -53,7 +53,8 @@ based on react-project (all prev history): https://github.com/Lerik13/react-apps
 
 ### Desktop View - Light Mode
 
-![Screenshot](/public/screenshots/desktop/4.jpg)
+| ![Screenshot](/public/screenshots/desktop/4.jpg) |
+|-|
 ![Screenshot](/public/screenshots/desktop/5.jpg)
 ![Screenshot](/public/screenshots/desktop/6.jpg)
 ![Screenshot](/public/screenshots/desktop/7.jpg)
