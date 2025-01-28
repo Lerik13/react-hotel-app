@@ -41,6 +41,8 @@ The application is designed with a focus on reusability, scalability, and perfor
 - **Responsive Design**: Fully responsive design to ensure compatibility across devices.
 - **Framer Motion**: To sprinkle some joy with animations.
 
+based on react-project (all prev history): https://github.com/Lerik13/react-apps/tree/main/small-hotel-app
+
 ### Desktop View - Dark Mode
 
 ![Screenshot](/public/screenshots/desktop/1.jpg)
